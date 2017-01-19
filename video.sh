@@ -6,13 +6,6 @@ function number_of_frames {
     echo `ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of default=nokey=1:noprint_wrappers=1 "$video_filepath"`
 }
 
-# Returns the number of left padding zeros wrt. the number of frames
-function padding_zeros {
-	video_filepath="$1"
-	num_frames=`number_of_frames "$video_filepath"`
-	echo "${#num_frames}"
-}
-
 # Returns the number of frames per second from a video
 function frames_per_second {
 	video_filepath="$1"
