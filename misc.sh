@@ -27,3 +27,10 @@ function contains() {
     fi
     return 0    # $substring is not in $string
 }
+
+
+function pad_zeros() {
+    num_digits="$1"
+    number="$2"
+    printf %0"$num_digits"d $number
+}
