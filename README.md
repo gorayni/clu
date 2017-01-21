@@ -2,4 +2,4 @@
 
 Bash util scripts.
 
-* A tribute of CLU from TRON.
+\* A tribute of CLU from TRON.
