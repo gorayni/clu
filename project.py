@@ -6,7 +6,7 @@ from skimage import io
 
 def project(angle, img):
     
-    height, width, _ = img.shape
+    height, width, num_channels = img.shape
     pts_src = np.array([[0,0],
                         [width- 1, 0],
                         [width - 1, height -1],
@@ -21,7 +21,7 @@ def project(angle, img):
                         [0, height-1]],dtype=float);
     pts_dst += np.array([[0,added_height-1]])
 
-    projected_img = 255*np.ones((height+added_height,new_width,3), dtype=np.uint8)
+    projected_img = 255*np.ones((height+added_height,new_width,num_channels), dtype=np.uint8)
     cv2.fillConvexPoly(projected_img, pts_dst.astype(int), 0, 16);
 
     h, _ = cv2.findHomography(pts_src, pts_dst);
